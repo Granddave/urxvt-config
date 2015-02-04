@@ -1,23 +1,27 @@
-! File   : ~/.Xresources
-! Author : Guillaume Seren.
-! Source : https://github.com/GuillaumeSeren/urxvt-config
-! Licence: GPLv2
+! --------------------------------------------------------
+! File    : ~/.Xressources
+! Author  : Guillaume Seren
+! Source  : https://github.com/GuillaumeSeren/urxvt-config
+! Licence : GPLv2
 !
-! Description:
-! Configuration of uRXVT.
-! The color sheme is solarized
+! This file provide the configuration of X client applications,
+! mostly needed for urxvt tweaking.
 !
-!@TODO: Add a way to switch light / dark color.
-!
+! Get the actual configuration with :
+! xrdb -query -all
 ! Reload with :
-! To reread your .Xresources file, and throw away your old resources, you can
-! type:
-! xrdb ~/.Xdefaults
+! xrdb ~/.Xresources
 ! To reread your .Xresources file, and keep your old resources, type:
-! xrdb -merge ~/.Xdefaults
+! xrdb -merge ~/.Xresources
+! --------------------------------------------------------
 
-!Solarized color scheme for the X Window System
+! Color scheme {{{1
+! Solarized color scheme for the X Window System
+
+! drop in Solarized colorscheme for Xresources/Xdefaults
+! light schema per http://ethanschoonover.com/solarized#usage-development
 ! http://ethanschoonover.com/solarized
+
 ! https://github.com/solarized/xresources/blob/master/solarized
 ! Common
 #define S_yellow #b58900
@@ -29,9 +33,6 @@
 #define S_cyan #2aa198
 #define S_green #859900
 
-
-!! drop in Solarized colorscheme for Xresources/Xdefaults
-!! light schema per http://ethanschoonover.com/solarized#usage-development
 ! Dark
 #define S_base03 #002b36
 #define S_base02 #073642
@@ -52,43 +53,7 @@
 !#define S_base2 #073642
 !#define S_base3 #002b36
 
-
-!!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
-!!--------- ------- ---- -------  ----------- ---------- ----------- -----------
-!!base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
-!!base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
-!!base01    #586e75 10/7 brgreen  240 #585858 45 -07 -07  88 110 117 194  25  46
-!!base00    #657b83 11/7 bryellow 241 #626262 50 -07 -07 101 123 131 195  23  51
-!!base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
-!!base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
-!!base2     #eee8d5  7/7 white    254 #e4e4e4 92 -00  10 238 232 213  44  11  93
-!!base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
-!!yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
-!!orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
-!!red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
-!!magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
-!!violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
-!!blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
-!!cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
-!!green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
-
-!#define S_base3         #002b36
-!#define S_base2         #073642
-!#define S_base1         #586e75
-!#define S_base0         #657b83
-!#define S_base00        #839496
-!#define S_base01        #93a1a1
-!#define S_base02        #eee8d5
-!#define S_base03        #fdf6e3
-!#define S_yellow        #b58900
-!#define S_orange        #cb4b16
-!#define S_red           #dc322f
-!#define S_magenta       #d33682
-!#define S_violet        #6c71c4
-!#define S_blue          #268bd2
-!#define S_cyan          #2aa198
-!#define S_green         #859900
-
+! Color setting {{{1
 *background:            S_base03
 *foreground:            S_base0
 *fading:                40
@@ -96,46 +61,6 @@
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
-
-!!! black dark/light
-!*color0:                S_base2
-!*color8:                S_base3
-!
-!!! red dark/light
-!*color1:                S_red
-!*color9:                S_orange
-!
-!!! green dark/light
-!*color2:                S_green
-!*color10:               S_base1
-!
-!!! yellow dark/light
-!*color3:                S_yellow
-!*color11:               S_base0
-!
-!!! blue dark/light
-!*color4:                S_blue
-!*color12:               S_base00
-!
-!!! magenta dark/light
-!*color5:                S_magenta
-!*color13:               S_violet
-!
-!!! cyan dark/light
-!*color6:                S_cyan
-!*color14:               S_base01
-!
-!!! white dark/light
-!*color7:                S_base02
-!*color15:               S_red
-!
-!*background: S_base03
-!*foreground: S_base0
-!*fading: 40
-!*fadeColor: S_base03
-!*cursorColor: S_base1
-!*pointerColorBackground: S_base01
-!*pointerColorForeground: S_base1
 
 *color0: S_base02
 *color1: S_red
@@ -154,24 +79,7 @@
 *color14: S_base1
 *color15: S_base3
 
-!*color0:	#151517
-!*color1:	#ea6868
-!*color2:	#5cb247
-!*color3:	#dbbb4b
-!*color4:	#4385ee
-!*color5:	#75507b
-!*color6:	#5E7175
-!*color7:	#f2f2f2
-!*color8:	#554444
-!*color9:	#e05050
-!*color10:	#9ead72
-!*color11:	#dd7d33
-!*color12:	#41a6be
-!*color13:	#666690
-!*color14:	#107080
-!*color15:	#e2e2e2
-
-!! --- XLock ---
+! XLock {{{1
 XLock.clock.count:      1
 XLock.clock.size:       0
 XLock.description:      False
@@ -179,31 +87,26 @@ Xlock.echokeys:         True
 XLock.echokey:          *
 XLock.erasemode:        no_fade
 
-!! --- Xterm ---
+! Xterm {{{1
 xterm*boldColors:       false
 xterm*borderWidth:      0
 xterm*charClass:        33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 xterm*cursorBlind:      true
 xterm*cutNewLine:       false
 xterm*dynamicColors:    true
-xterm*faceName:         monospace
+/* xterm*faceName:         monospace */
 xterm*faceSize:         10
 xterm*internalBorder:   4
 xterm*pointerMode:      2
 xterm*renderFont:       true
 xterm*selectToClipboard:true
-xterm*termName:         xterm-256color
+!xterm*termName:         xterm-256color
+xterm*termName:         rxvt-unicode-256color
+!xterm*termName:        screen-256color
 xterm*toolBar:          false
 
-! Normal
+! Keyboard remap {{{1
 ! From : http://www.netswarm.net/misc/urxvt-xtermcompat.txt
-!URxvt*keysym.Home:keysym\033OH
-!URxvt*keysym.End:keysym\033OF
-!URxvt*keysym.F1:keysym\033OP
-!URxvt*keysym.F2:keysym\033OQ
-!URxvt*keysym.F3:keysym\033OR
-!URxvt*keysym.F4:keysym\033OS
-! Normal
 *URxvt*keysym.Home:     \033OH
 *URxvt*keysym.End:      \033OF
 *URxvt*keysym.F1:       \033OP
@@ -211,8 +114,12 @@ xterm*toolBar:          false
 *URxvt*keysym.F3:       \033OR
 *URxvt*keysym.F4:       \033OS
 
-!! --- URxvt ---
-URxvt*font:             xft:monospace:size=8
+! Font configuration {{{1
+/* URxvt*font:             xft:monospace:size=8 */
+/* URxvt*font:             xft:Monospace:pixelsize=8 */
+/* URxvt*boldFont:         xft:Monospace:bold:pixelsize=8 */
+URxvt.font:             xft:bitstream vera sans mono:size=16:antialias=true
+URxvt.boldFont:         xft:bitstream vera sans mono:bold:size=16:antialias=true
 URxvt*intensityStyles:  false
 URxvt*internalBorder:   1
 ! proper font rendering:
@@ -222,8 +129,7 @@ URxvt*letterSpace:      -1
 URxvt*scrollBar:        false
 URxvt*transparent:      true
 URxvt.shading:          20
-!! --- Fonts ---
-!! https://wiki.archlinux.org/index.php/Font_Configuration
+! https://wiki.archlinux.org/index.php/Font_Configuration
 Xft.autohint:           0
 Xft.lcdfilter:          lcddefault
 Xft.hintstyle:          hintslight
@@ -232,11 +138,11 @@ Xft.antialias:          1
 Xft.rgba:               rgb
 Xft*dpi:                96
 
-!! --- Cursor ---
+! Cursor {{{1
 Xcursor.theme:          Vanilla-DMZ-AA
 Xcursor.size:           48
 
-!! Clickable URLs
+! Clickable URLs {{{1
 URxvt.perl-ext-common:  default,matcher,font-size
 URxvt.url-launcher:     /usr/bin/firefox
 URxvt.matcher.button:   1
@@ -248,85 +154,13 @@ URxvt.keysym.M-Delete:  perl:matcher:list
 ! following setting or any color in the form of #RRGGBB you like instead.
 URxvt.colorUL:          #4682B4
 
-!! --- FONT-SIZE ---
-!Change font-size
-!https://github.com/majutsushi/urxvt-font-size
-!Add some keybindings:
+! font-zoom {{{1
+! Change font-size
+! https://github.com/majutsushi/urxvt-font-size
+! Add some keybindings:
 URxvt.keysym.C-plus:    perl:font-size:increase
 URxvt.keysym.C-minus:   perl:font-size:decrease
 URxvt.keysym.C-A-plus:  perl:font-size:incglobal
 URxvt.keysym.C-A-minus: perl:font-size:decglobal
 !step of font increasing
 URxvt.font-size.step:   2
-
-!! size matters
-!*saveLines :            32767
-!
-!! extensions -> clipboard (requires xsel)
-!! https://github.com/muennich/urxvt-perls
-!URxvt.keysym.C-C:       perl:clipboard:copy
-!URxvt.keysym.C-V:       perl:clipboard:paste
-!URxvt.keysym.C-M-v:     perl:clipboard:paste_escaped
-!
-!! Keyboard select :
-!! Use keyboard shortcuts to select and copy text.
-!! https://github.com/GuillaumeSeren/urxvt-perls
-!! from : https://github.com/muennich/urxvt-perls
-!URxvt.perl-ext-common: ...,keyboard-select
-!URxvt.keysym.M-Escape: perl:keyboard-select:activate
-!
-!! The following line overwrites the default Meta-s binding and allows to
-!! activate keyboard-select directly in backward search mode:
-!URxvt.keysym.M-s: perl:keyboard-select:search
-!
-!! Use Meta-Escape to activate selection mode, then use the following keys:
-!! h/j/k/l:    Move cursor left/down/up/right (also with arrow keys)
-!! g/G/0/^/$/H/M/L/f/F/;/,/w/W/b/B/e/E: More vi-like cursor movement keys
-!! '/'/?:      Start forward/backward search
-!! n/N:        Repeat last search, N: in reverse direction
-!! Ctrl-f/b:   Scroll down/up one screen
-!! Ctrl-d/u:   Scroll down/up half a screen
-!! v/V/Ctrl-v: Toggle normal/linewise/blockwise selection
-!! y/Return:   Copy selection to primary buffer, Return: deactivate afterwards
-!! q/Escape:   Deactivate keyboard selection mode
-!
-!! URL Select :
-!! Use keyboard shortcuts to select URLs.
-!URxvt.perl-ext-common: ...,url-select
-!URxvt.keysym.M-u: perl:url-select:select_next
-!
-!! Use Meta-u to activate URL selection mode, then use the following keys:
-!! j/k:      Select next downward/upward URL (also with arrow keys)
-!! g/G:      Select first/last URL (also with home/end key)
-!! o/Return: Open selected URL in browser, Return: deactivate afterwards
-!! y:        Copy (yank) selected URL and deactivate selection mode
-!! q/Escape: Deactivate URL selection mode
-!
-!! Options :
-!!URxvt.url-select.autocopy:  true
-!! URxvt.url-select.autocopy:  if set to true, selected URLs are automatically
-!!                             copied to the PRIMARY buffer
-!! URxvt.url-select.button:    mouse button to click-open URLs (default: 2)
-!! URxvt.url-select.launcher:  browser/command to open selected URL with
-!! URxvt.url-select.underline: if set to true, all URLs get underlined
-!!URxvt.url-select.underline: true
-!
-!! Clipboard :
-!! Use keyboard shortcuts to copy the selection to the clipboard and to paste the
-!! clipboard contents (optionally escaping all special characters).
-!URxvt.perl-ext-common: ...,clipboard
-!URxvt.keysym.M-c:   perl:clipboard:copy
-!URxvt.keysym.M-v:   perl:clipboard:paste
-!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-!
-!! Options: URxvt.clipboard.autocopy: if set to true, the clipboard is
-!! automatically updated whenever the PRIMARY selection changes
-!
-!! You can also overwrite the system commands to use for copying/pasting. The
-!! default ones are:
-!! URxvt.clipboard.copycmd:  xsel -ib
-!! URxvt.clipboard.pastecmd: xsel -ob
-!
-!! If you prefer xclip, then put these lines in your .Xdefaults/.Xresources:
-!! URxvt.clipboard.copycmd:  xclip -i -selection clipboard
-!! URxvt.clipboard.pastecmd: xclip -o -selection clipboard

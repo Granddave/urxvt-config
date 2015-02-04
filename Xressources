@@ -138,11 +138,13 @@ x11-ssh-askpass.*borderWidth:           1
 *URxvt*keysym.F4:       \033OS
 
 ! Font configuration {{{1
-URxvt*font:             xft:Monospace:pixelsize=10
-URxvt*boldFont:         xft:Monospace:bold:pixelsize=10
-! URxvt.font:             xft:bitstream vera sans mono
-! URxvt.boldFont:         xft:bitstream vera sans mono
-xterm*faceSize:         8
+! URxvt*font:             xft:Monospace:pixelsize=10
+! URxvt*boldFont:         xft:Monospace:bold:pixelsize=10
+!URxvt.font:             xft:bitstream vera sans mono:pixelsize=10
+!URxvt.boldFont:         xft:bitstream vera sans mono:bold:pixelsize=10
+URxvt*font:             xft:Bitstream Vera Sans Mono:style=Regular:pixelsize=12:antialias=true
+URxvt*boldFont:         xft:Bitstream Vera Sans Mono:bold:style=Regular:pixelsize=12:antialias=true
+xterm*faceSize:         10
 URxvt*intensityStyles:  false
 URxvt*internalBorder:   1
 ! proper font rendering:

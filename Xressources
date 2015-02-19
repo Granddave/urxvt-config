@@ -15,6 +15,117 @@
 ! xrdb -merge ~/.Xresources
 ! --------------------------------------------------------
 
+! Hisory {{{1
+! size matters
+*saveLines            : 32767
+
+! Set termName {{{1
+URxvt*termName        : screen-256color
+
+! Xft {{{1
+! anti-aliasing
+Xft*antialias         : true
+Xft*hinting           : 1
+Xft*dpi               : 96
+
+! Xterm {{{1
+XTerm*renderFont      : true
+XTerm*faceSize        : 12
+XTerm*faceName        : Inconsolata
+
+! let’s be 8bit-clean {{{1
+XTerm*utf8            : 1
+XTerm*eightBitInput   : false
+XTerm*eightBitControl : false
+XTerm*eightBitOutput  : true
+
+! disable fullscreen on <Alt-Return> {{{1
+XTerm*fullscreen      : never
+XTerm*omitTranslation : fullscreen
+
+! URxvt über alles {{{1
+URxvt*loginShell      : true
+URxvt*scrollBar       : false
+URxvt*scrollBar_right : false
+URxvt*transparent     : true
+URxvt*shading         : 30
+URxvt*cursorBlink     : true
+
+! Font configuration {{{1
+! We need a positive letterspace, to display wide char.
+URxvt*letterSpace     : 1
+URxvt.font            : xft:inconsolata\ for\ Powerline:size=12,\
+                        xft:unifont:size=12
+
+! reclaim <Alt-s> and <Ctrl-Shift-*> shortcuts {{{1
+URxvt*searchable-scrollback: M-S-s
+URxvt*iso14755        : false
+URxvt*iso14755_52     : false
+
+! make Alt-arrow work {{{1
+URxvt.keysym.M-Up     : \033[1;3A
+URxvt.keysym.M-Down   : \033[1;3B
+URxvt.keysym.M-Right  : \033[1;3C
+URxvt.keysym.M-Left   : \033[1;3D
+URxvt.keysym.M-Prior  : \033[5;3~
+URxvt.keysym.M-Next   : \033[6;3~
+URxvt.keysym.M-End    : \033[1;3F
+URxvt.keysym.M-Home   : \033[1;3H
+
+! make Ctrl-arrow work {{{1
+URxvt.keysym.C-Up     : \033[1;5A
+URxvt.keysym.C-Down   : \033[1;5B
+URxvt.keysym.C-Right  : \033[1;5C
+URxvt.keysym.C-Left   : \033[1;5D
+URxvt.keysym.C-Prior  : \033[5;5~
+URxvt.keysym.C-Next   : \033[6;5~
+URxvt.keysym.C-End    : \033[1;5F
+URxvt.keysym.C-Home   : \033[1;5H
+
+! Keyboard remap {{{1
+! From : http://www.netswarm.net/misc/urxvt-xtermcompat.txt
+*URxvt*keysym.Home    : \033OH
+*URxvt*keysym.End     : \033OF
+*URxvt*keysym.F1      : \033OP
+*URxvt*keysym.F2      : \033OQ
+*URxvt*keysym.F3      : \033OR
+*URxvt*keysym.F4      : \033OS
+
+! extensions (+ disable the selection popup)
+URxvt.perl-ext-common : default,matcher,clipboard,font-size,-selection-popup
+
+! extensions -> matcher: open URL with a left click
+URxvt.urlLauncher     : xdg-open
+URxvt.matcher.button  : 1
+
+! extensions -> clipboard (requires xsel)
+! https://github.com/muennich/urxvt-perls
+URxvt.keysym.C-C      : perl:clipboard:copy
+URxvt.keysym.C-V      : perl:clipboard:paste
+URxvt.keysym.C-M-v    : perl:clipboard:paste_escaped
+
+! Clickable URLs {{{1
+URxvt.url-launcher    : /usr/bin/firefox
+URxvt.matcher.button  : 1
+! Since rxvt-unicode 9.14, it is also possible to use matcher to open and list
+! recent (currently limited to 10) URLs via keyboard:
+URxvt.keysym.C-Delete : perl:matcher:last
+URxvt.keysym.M-Delete : perl:matcher:list
+! To color all matching text in a blue color for quickly finding links, use the
+! following setting or any color in the form of #RRGGBB you like instead.
+URxvt.colorUL         : #4682B4
+
+! font-zoom {{{1
+! Change font-size
+! https://github.com/majutsushi/urxvt-font-size
+! Add some keybindings:
+URxvt.keysym.C-plus   : perl:font-size:increase
+URxvt.keysym.C-minus  : perl:font-size:decrease
+URxvt.keysym.C-A-plus : perl:font-size:incglobal
+URxvt.keysym.C-A-minus: perl:font-size:decglobal
+!step of font increasing
+URxvt.font-size.step  : 1
+
 ! Color scheme {{{1
 ! Solarized color scheme for the X Window System
 ! https://github.com/solarized/xresources/blob/master/solarized
@@ -49,135 +160,31 @@
 !#define S_base3        #002b36
 
 ! Color setting {{{1
-*background:            S_base03
-*foreground:            S_base0
-*fading:                40
-*fadeColor:             S_base03
-*cursorColor:           S_base1
+*background           : S_base03
+*foreground           : S_base0
+*fading               : 40
+*fadeColor            : S_base03
+*cursorColor          : S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
 
-*color0:                S_base02
-*color1:                S_red
-*color2:                S_green
-*color3:                S_yellow
-*color4:                S_blue
-*color5:                S_magenta
-*color6:                S_cyan
-*color7:                S_base2
-*color8:                S_base03
-*color9:                S_orange
-*color10:               S_base01
-*color11:               S_base00
-*color12:               S_base0
-*color13:               S_violet
-*color14:               S_base1
-*color15:               S_base3
+*color0               : S_base02
+*color1               : S_red
+*color2               : S_green
+*color3               : S_yellow
+*color4               : S_blue
+*color5               : S_magenta
+*color6               : S_cyan
+*color7               : S_base2
+*color8               : S_base03
+*color9               : S_orange
+*color10              : S_base01
+*color11              : S_base00
+*color12              : S_base0
+*color13              : S_violet
+*color14              : S_base1
+*color15              : S_base3
 
 ! Cursor {{{1
-Xcursor.theme:          Vanilla-DMZ-AA
-Xcursor.size:           22
-
-! Xft {{{1
-Xft.dpi:                96
-Xft.antialias:          true
-Xft.rgba:               rgb
-Xft.autohint:           0
-Xft.lcdfilter:          lcddefault
-Xft.hinting:            true
-Xft.hintstyle:          hintslight
-
-! Xterm {{{1
-xterm*VT100.geometry:   80x25
-xterm*dynamicColors:    true
-xterm*utf8:             2
-xterm*eightBitInput:    true
-xterm*saveLines:        10240
-xterm*scrollKey:        true
-xterm*scrollTtyOutput:  false
-! No toolbar
-xterm*toolBar:          false
-! No scrollbar
-URxvt*scrollBar:        false
-! Native transparency
-URxvt*transparent:      true
-URxvt.shading:          20
-
-! maybe to clean
-xterm*boldColors:       false
-xterm*borderWidth:      0
-xterm*charClass:        33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-xterm*cursorBlind:      true
-xterm*cutNewLine:       false
-/* xterm*faceName:         monospace */
-xterm*internalBorder:   4
-xterm*pointerMode:      2
-xterm*renderFont:       true
-xterm*selectToClipboard:true
-! Term name
-xterm*termName:         rxvt-unicode-256color
-
-! X11-SSH-AskPass {{{1
-x11-ssh-askpass*font:                   -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-x11-ssh-askpass*background:             #000000
-x11-ssh-askpass*foreground:             #ffffff
-x11-ssh-askpass.Button*background:      #000000
-x11-ssh-askpass.Indicator*foreground:   #ff9900
-x11-ssh-askpass.Indicator*background:   #090909
-x11-ssh-askpass*topShadowColor:         #000000
-x11-ssh-askpass*bottomShadowColor:      #000000
-x11-ssh-askpass.*borderWidth:           1
-
-! Keyboard remap {{{1
-! From : http://www.netswarm.net/misc/urxvt-xtermcompat.txt
-*URxvt*keysym.Home:     \033OH
-*URxvt*keysym.End:      \033OF
-*URxvt*keysym.F1:       \033OP
-*URxvt*keysym.F2:       \033OQ
-*URxvt*keysym.F3:       \033OR
-*URxvt*keysym.F4:       \033OS
-
-! Font configuration {{{1
-! URxvt*font:             xft:Monospace:pixelsize=10
-! URxvt*boldFont:         xft:Monospace:bold:pixelsize=10
-!URxvt.font:             xft:bitstream vera sans mono:pixelsize=10
-!URxvt.boldFont:         xft:bitstream vera sans mono:bold:pixelsize=10
-URxvt*font:             xft:Bitstream Vera Sans Mono:style=Regular:pixelsize=12:antialias=true
-URxvt*boldFont:         xft:Bitstream Vera Sans Mono:bold:style=Regular:pixelsize=12:antialias=true
-xterm*faceSize:         10
-URxvt*intensityStyles:  false
-URxvt*internalBorder:   1
-! proper font rendering:
-! the “letterSpace” option is absolutely required to keep the text readable
-! (problem: wide characters like ←→ might become unreadable… :-/)
-URxvt*letterSpace:      -1
-
-! Xpdf {{{1
-xpdf*enableFreetype:    yes
-xpdf*antialias:         yes
-xpdf*foreground:        black
-xpdf*background:        white
-xpdf*urlCommand:        /usr/bin/firefox %s
-
-! Clickable URLs {{{1
-URxvt.perl-ext-common:  default,matcher,font-size
-URxvt.url-launcher:     /usr/bin/firefox
-URxvt.matcher.button:   1
-! Since rxvt-unicode 9.14, it is also possible to use matcher to open and list
-! recent (currently limited to 10) URLs via keyboard:
-URxvt.keysym.C-Delete:  perl:matcher:last
-URxvt.keysym.M-Delete:  perl:matcher:list
-! To color all matching text in a blue color for quickly finding links, use the
-! following setting or any color in the form of #RRGGBB you like instead.
-URxvt.colorUL:          #4682B4
-
-! font-zoom {{{1
-! Change font-size
-! https://github.com/majutsushi/urxvt-font-size
-! Add some keybindings:
-URxvt.keysym.C-plus:    perl:font-size:increase
-URxvt.keysym.C-minus:   perl:font-size:decrease
-URxvt.keysym.C-A-plus:  perl:font-size:incglobal
-URxvt.keysym.C-A-minus: perl:font-size:decglobal
-!step of font increasing
-URxvt.font-size.step:   2
+Xcursor.theme         : Vanilla-DMZ-AA
+Xcursor.size          : 22

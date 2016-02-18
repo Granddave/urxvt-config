@@ -15,7 +15,7 @@
 ! xrdb -merge ~/.Xresources
 ! --------------------------------------------------------
 
-! Hisory {{{1
+! History {{{1
 ! size matters
 *saveLines            : 32767
 
@@ -25,7 +25,8 @@ URxvt*termName        : screen-256color
 ! Xft {{{1
 ! anti-aliasing
 Xft*antialias         : true
-Xft*hinting           : 1
+Xft.hinting           : true
+Xft.hintstyle         : hintslight
 Xft*dpi               : 96
 
 ! Xterm {{{1
@@ -54,8 +55,23 @@ URxvt*cursorBlink     : true
 ! Font configuration {{{1
 ! We need a positive letterspace, to display wide char.
 URxvt*letterSpace     : 1
-URxvt.font            : xft:inconsolata\ for\ Powerline:size=12,\
-                        xft:unifont:size=12
+! URxvt.font            : xft:Ubuntu\ Mono\ derivative\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
+! URxvt.font            : xft:Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
+! URxvt.font            : xft:ProggyCleanTT\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
+! URxvt.font            : xft:Sauce Code Powerline Plus Nerd File Types Plus Pomicons:size=12,\
+! URxvt.font            : xft:inconsolata\ for\ Powerline:size=12,\
+! URxvt.font            : xft:Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
+! URxvt.font: xft:ProggyCleanTT Plus Nerd File Types Mono:pixelsize=16:antialias=true:hinting=true,\
+! URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:pixelsize=16:antialias=true:hinting=true,\
+! URxvt.font: xft:ProggyCleanTT Plus Nerd File Types Mono
+! URxvt.font: xft:Inconsolata for Powerline PNFT:size=12
+! URxvt.font:   xft:Sauce Code      Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=12
+! URxvt.font:   xft:Meslo LG L DZ for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=12
+! URxvt.font:   xft:monofur for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons:size=12
+! URxvt.font: xft:Unifont:size=12
+URxvt.font: xft:Inconsolata for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=10,\
+            xft:Unifont:size=12
+
 
 ! reclaim <Alt-s> and <Ctrl-Shift-*> shortcuts {{{1
 URxvt*searchable-scrollback: M-S-s
@@ -149,20 +165,20 @@ URxvt.font-size.step  : 1
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
-! Light
-!#define S_base03       #fdf6e3
-!#define S_base02       #eee8d5
-!#define S_base01       #93a1a1
-!#define S_base00       #839496
-!#define S_base0        #657b83
-!#define S_base1        #586e75
-!#define S_base2        #073642
-!#define S_base3        #002b36
+! ! Light
+! #define S_base03       #fdf6e3
+! #define S_base02       #eee8d5
+! #define S_base01       #93a1a1
+! #define S_base00       #839496
+! #define S_base0        #657b83
+! #define S_base1        #586e75
+! #define S_base2        #073642
+! #define S_base3        #002b36
 
 ! Color setting {{{1
 *background           : S_base03
 *foreground           : S_base0
-*fading               : 40
+*fading               : 10
 *fadeColor            : S_base03
 *cursorColor          : S_base1
 *pointerColorBackground:S_base01

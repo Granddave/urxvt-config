@@ -108,39 +108,49 @@ URxvt.keysym.C-Home   : \033[1;5H
 *URxvt*keysym.F4      : \033OS
 
 ! extensions (+ disable the selection popup)
-URxvt.perl-ext-common : default,matcher,clipboard,font-size,-selection-popup
+! URxvt.perl-ext-common : default,matcher,clipboard,font-size,-selection-popup
+! URxvt.perl-ext-common : default,url-select,resize-font,rotate-colors
+! URxvt.perl-ext-common : resize-font
 
 ! extensions -> matcher: open URL with a left click
-URxvt.urlLauncher     : xdg-open
-URxvt.matcher.button  : 1
+URxvt.perl-ext-common: ...,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.url-select.underline: true
+URvxt.url-select.button: 1
 
-! extensions -> clipboard (requires xsel)
-! https://github.com/muennich/urxvt-perls
-URxvt.keysym.C-C      : perl:clipboard:copy
-URxvt.keysym.C-V      : perl:clipboard:paste
-URxvt.keysym.C-M-v    : perl:clipboard:paste_escaped
-
-! Clickable URLs {{{1
-URxvt.url-launcher    : /usr/bin/firefox
-URxvt.matcher.button  : 1
-! Since rxvt-unicode 9.14, it is also possible to use matcher to open and list
-! recent (currently limited to 10) URLs via keyboard:
-URxvt.keysym.C-Delete : perl:matcher:last
-URxvt.keysym.M-Delete : perl:matcher:list
-! To color all matching text in a blue color for quickly finding links, use the
-! following setting or any color in the form of #RRGGBB you like instead.
-URxvt.colorUL         : #4682B4
+! ! extensions -> clipboard (requires xsel)
+! ! https://github.com/muennich/urxvt-perls
+! URxvt.keysym.C-C      : perl:clipboard:copy
+! URxvt.keysym.C-V      : perl:clipboard:paste
+! URxvt.keysym.C-M-v    : perl:clipboard:paste_escaped
+! 
+! ! Clickable URLs {{{1
+! URxvt.url-launcher    : /usr/bin/firefox
+! URxvt.matcher.button  : 1
+! ! Since rxvt-unicode 9.14, it is also possible to use matcher to open and list
+! ! recent (currently limited to 10) URLs via keyboard:
+! URxvt.keysym.C-Delete : perl:matcher:last
+! URxvt.keysym.M-Delete : perl:matcher:list
+! ! To color all matching text in a blue color for quickly finding links, use the
+! ! following setting or any color in the form of #RRGGBB you like instead.
+! URxvt.colorUL         : #4682B4
 
 ! font-zoom {{{1
 ! Change font-size
 ! https://github.com/majutsushi/urxvt-font-size
 ! Add some keybindings:
-URxvt.keysym.C-plus   : perl:font-size:increase
-URxvt.keysym.C-minus  : perl:font-size:decrease
-URxvt.keysym.C-A-plus : perl:font-size:incglobal
-URxvt.keysym.C-A-minus: perl:font-size:decglobal
-!step of font increasing
-URxvt.font-size.step  : 1
+URxvt.perl-ext-common    : ...,resize-font
+URxvt.keysym.C-plus      : perl:resize-font:bigger
+URxvt.keysym.C-minus     : perl:resize-font:smaller
+URxvt.keysym.C-equal     : perl:resize-font:reset
+URxvt.keysym.C-question  : perl:resize-font:show
+
+! color scheme:
+! URxvt.perl-ext-common    : ...,rotate-colors
+! URxvt.rotate-colors.files: ~/.Xresources,~/.Xresources.light,~/.Xresources.dark
+! URxvt.keysym.M-C-u: perl:rotate-colors:next
+! URxvt.keysym.M-C-p: perl:rotate-colors:prev
 
 ! Color scheme {{{1
 ! Solarized color scheme for the X Window System

@@ -31,8 +31,7 @@ Xft*dpi               : 96
 
 ! Xterm {{{1
 XTerm*renderFont      : true
-XTerm*faceSize        : 12
-XTerm*faceName        : Inconsolata
+XTerm*faceName        : xft:Inconsolata for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=8
 
 ! let’s be 8bit-clean {{{1
 XTerm*utf8            : 1
@@ -55,162 +54,42 @@ URxvt*cursorBlink     : true
 ! Font configuration {{{1
 ! We need a positive letterspace, to display wide char.
 URxvt*letterSpace     : 1
-! URxvt.font            : xft:Ubuntu\ Mono\ derivative\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
-! URxvt.font            : xft:Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
-! URxvt.font            : xft:ProggyCleanTT\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
-! URxvt.font            : xft:Sauce Code Powerline Plus Nerd File Types Plus Pomicons:size=12,\
-! URxvt.font            : xft:inconsolata\ for\ Powerline:size=12,\
-! URxvt.font            : xft:Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:size=12,\
-! URxvt.font: xft:ProggyCleanTT Plus Nerd File Types Mono:pixelsize=16:antialias=true:hinting=true,\
-! URxvt.font: xft:Droid Sans Mono for Powerline Plus Nerd File Types Mono:pixelsize=16:antialias=true:hinting=true,\
-! URxvt.font: xft:ProggyCleanTT Plus Nerd File Types Mono
-! URxvt.font: xft:Inconsolata for Powerline PNFT:size=12
-! URxvt.font:   xft:Sauce Code      Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=12
-! URxvt.font:   xft:Meslo LG L DZ for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=12
-! URxvt.font:   xft:monofur for Powerline Plus Nerd File Types Plus Font Awesome Plus Octicons Plus Pomicons:size=12
-! URxvt.font: xft:Unifont:size=12
-URxvt.font: xft:Inconsolata for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=10,\
-            xft:Unifont:size=12
+URxvt.font            : xft:Inconsolata for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=8,\
+                        xft:Unifont:size=8
 
-
-! reclaim <Alt-s> and <Ctrl-Shift-*> shortcuts {{{1
-URxvt*searchable-scrollback: M-S-s
-URxvt*iso14755        : false
-URxvt*iso14755_52     : false
-
-! make Alt-arrow work {{{1
-URxvt.keysym.M-Up     : \033[1;3A
-URxvt.keysym.M-Down   : \033[1;3B
-URxvt.keysym.M-Right  : \033[1;3C
-URxvt.keysym.M-Left   : \033[1;3D
-URxvt.keysym.M-Prior  : \033[5;3~
-URxvt.keysym.M-Next   : \033[6;3~
-URxvt.keysym.M-End    : \033[1;3F
-URxvt.keysym.M-Home   : \033[1;3H
-
-! make Ctrl-arrow work {{{1
-URxvt.keysym.C-Up     : \033[1;5A
-URxvt.keysym.C-Down   : \033[1;5B
-URxvt.keysym.C-Right  : \033[1;5C
-URxvt.keysym.C-Left   : \033[1;5D
-URxvt.keysym.C-Prior  : \033[5;5~
-URxvt.keysym.C-Next   : \033[6;5~
-URxvt.keysym.C-End    : \033[1;5F
-URxvt.keysym.C-Home   : \033[1;5H
-
-! Keyboard remap {{{1
-! From : http://www.netswarm.net/misc/urxvt-xtermcompat.txt
-*URxvt*keysym.Home    : \033OH
-*URxvt*keysym.End     : \033OF
-*URxvt*keysym.F1      : \033OP
-*URxvt*keysym.F2      : \033OQ
-*URxvt*keysym.F3      : \033OR
-*URxvt*keysym.F4      : \033OS
+! Hack to act more like XTerm.
+! Source: http://www.netswarm.net/misc/urxvt-xtermcompat.txt
+! Fix Shift/Control/Meta with function and insert keys.
+! S-F1 is normally sent as F11-F20, and S-F11+S-F12 being extra strange.
+#include "/home/gseren/.Xresources.d/urxvt-xtermcompat.txt"
 
 ! extensions (+ disable the selection popup)
-! URxvt.perl-ext-common : default,matcher,clipboard,font-size,-selection-popup
-! URxvt.perl-ext-common : default,url-select,resize-font,rotate-colors
-! URxvt.perl-ext-common : resize-font
+URxvt.perl-ext-common : default,selection-autotransform,url-select,keyboard-select,rotate-colors,matcher,resize-font
+URxvt.perl-ext        : default,clipboard
 
-! extensions -> matcher: open URL with a left click
-URxvt.perl-ext-common: ...,url-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.url-select.underline: true
-URvxt.url-select.button: 1
+! url-select {{{1
+URxvt.url-select.launcher  : firefox
+URxvt.url-select.underline : true
+URxvt.url-select.button    : 2
 
-! ! extensions -> clipboard (requires xsel)
-! ! https://github.com/muennich/urxvt-perls
-! URxvt.keysym.C-C      : perl:clipboard:copy
-! URxvt.keysym.C-V      : perl:clipboard:paste
-! URxvt.keysym.C-M-v    : perl:clipboard:paste_escaped
-! 
-! ! Clickable URLs {{{1
-! URxvt.url-launcher    : /usr/bin/firefox
-! URxvt.matcher.button  : 1
-! ! Since rxvt-unicode 9.14, it is also possible to use matcher to open and list
-! ! recent (currently limited to 10) URLs via keyboard:
-! URxvt.keysym.C-Delete : perl:matcher:last
-! URxvt.keysym.M-Delete : perl:matcher:list
-! ! To color all matching text in a blue color for quickly finding links, use the
-! ! following setting or any color in the form of #RRGGBB you like instead.
-! URxvt.colorUL         : #4682B4
+! Resize-Font {{{1
+URxvt.keysym.M-C-plus      : perl:resize-font:bigger
+URxvt.keysym.M-C-minus     : perl:resize-font:smaller
+URxvt.keysym.M-C-equal     : perl:resize-font:reset
+URxvt.keysym.M-C-question  : perl:resize-font:show
 
-! font-zoom {{{1
-! Change font-size
-! https://github.com/majutsushi/urxvt-font-size
-! Add some keybindings:
-URxvt.perl-ext-common    : ...,resize-font
-URxvt.keysym.C-plus      : perl:resize-font:bigger
-URxvt.keysym.C-minus     : perl:resize-font:smaller
-URxvt.keysym.C-equal     : perl:resize-font:reset
-URxvt.keysym.C-question  : perl:resize-font:show
-
-! color scheme:
-! URxvt.perl-ext-common    : ...,rotate-colors
-! URxvt.rotate-colors.files: ~/.Xresources,~/.Xresources.light,~/.Xresources.dark
-! URxvt.keysym.M-C-u: perl:rotate-colors:next
-! URxvt.keysym.M-C-p: perl:rotate-colors:prev
-
-! Color scheme {{{1
-! Solarized color scheme for the X Window System
-! https://github.com/solarized/xresources/blob/master/solarized
-! Common
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
-
-! Dark
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-
-! ! Light
-! #define S_base03       #fdf6e3
-! #define S_base02       #eee8d5
-! #define S_base01       #93a1a1
-! #define S_base00       #839496
-! #define S_base0        #657b83
-! #define S_base1        #586e75
-! #define S_base2        #073642
-! #define S_base3        #002b36
-
-! Color setting {{{1
-*background           : S_base03
-*foreground           : S_base0
-*fading               : 10
-*fadeColor            : S_base03
-*cursorColor          : S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
-
-*color0               : S_base02
-*color1               : S_red
-*color2               : S_green
-*color3               : S_yellow
-*color4               : S_blue
-*color5               : S_magenta
-*color6               : S_cyan
-*color7               : S_base2
-*color8               : S_base03
-*color9               : S_orange
-*color10              : S_base01
-*color11              : S_base00
-*color12              : S_base0
-*color13              : S_violet
-*color14              : S_base1
-*color15              : S_base3
+! ! Color scheme {{{1
+#include "/home/gseren/.Xresources.d/urxvt-colours-solarized-dark"
+URxvt.rotate-colors.files : /home/gseren/.Xresources.d/urxvt-colours-solarized-light,/home/gseren/.Xresources.d/urxvt-colours-solarized-dark
+! rotate-color {{{1
+URxvt.keysym.M-C-u: perl:rotate-colors:next
+URxvt.keysym.M-C-p: perl:rotate-colors:prev
+! This 'force' color overiding, only for test
+URxvt.keysym.M-C-d : command:\033]4;12;#9090FF\007\033]4;1;#AA0000\007\033]4;15;#FFFFFF\007\033]4;14;#55FFFF\007\033]4;5;#AA00AA\007\033]4;3;#AA5500\007\033]4;7;#AAAAAA\007\033]4;10;#55FF55\007\033]4;13;#FF55FF\007\033]4;4;#0000AD\007\033]4;8;#555555\007\033]11;#000000\007\033]4;9;#FF5555\007\033]4;2;#00AA00\007\033]\007\033]4;0;#000000\007\033]4;11;#FFFF55\007\033]10;#00FF00\007\033]5;0;#00FF00\007\033]4;6;#00AAAA\007
+URxvt.keysym.M-C-l : command:\033]4;12;#72729F9FCFCF\007\033]4;1;#CCCC00000000\007\033]4;15;#EEEEEEEEECEC\007\033]4;14;#3434E2E2E2E2\007\033]4;5;#757550507B7B\007\033]4;3;#C4C4A0A00000\007\033]4;7;#D3D3D7D7CFCF\007\033]4;4;#34346565A4A4\007\033]4;10;#8A8AE2E23434\007\033]4;13;#ADAD7F7FA8A8\007\033]4;8;#555557575353\007\033]11;#FFFFFFFFFFFF\007\033]4;9;#EFEF29292929\007\033]4;2;#4E4E9A9A0606\007\033]4;0;#2E2E34343636\007\033]4;11;#FCFCE9E94F4F\007\033]10;#000000000000\007\033]4;6;#060698209A9A\007
 
 ! Cursor {{{1
 Xcursor.theme         : Vanilla-DMZ-AA
 Xcursor.size          : 22
+
+/* vim: set ft=xdefaults foldmethod=marker :*/

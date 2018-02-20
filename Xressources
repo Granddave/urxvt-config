@@ -26,12 +26,12 @@ URxvt*termName        : tmux-256color
 ! anti-aliasing
 Xft*antialias         : true
 Xft.hinting           : true
-Xft.hintstyle         : hintslight
+Xft.hintstyle         : hintfull
+Xft.autohint          : true
 Xft*dpi               : 96
 
 ! Xterm {{{1
 XTerm*renderFont      : true
-XTerm*faceName        : xft:Inconsolata for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=8
 
 ! let’s be 8bit-clean {{{1
 XTerm*utf8            : 1
@@ -47,25 +47,31 @@ XTerm*omitTranslation : fullscreen
 URxvt*loginShell      : true
 URxvt*scrollBar       : false
 URxvt*scrollBar_right : false
-URxvt*transparent     : true
-URxvt*shading         : 30
+URxvt*transparent     : false
 URxvt*cursorBlink     : true
 
 ! Font configuration {{{1
 ! We need a positive letterspace, to display wide char.
-URxvt*letterSpace     : 1
-URxvt.font            : xft:Inconsolata for Powerline Plus Nerd File Types Mono Plus Font Awesome Plus Octicons Plus Pomicons:size=8,\
-                        xft:Unifont:size=8
+URxvt*letterSpace     : +1
+! Regular
+URxvt.font: xft:FuraCode Nerd Font Mono:style=Regular:style=Medium:size=8:antialias=true:hinting=true,\
+xft:Unifont:style=Medium:size=10
+! Bolt
+URxvt.boldFont: xft:FuraCode Nerd Font Mono:style=Bold:size=8:antialias=true:hinting=true,\
+xft:Unifont:style=Medium:size=10
+! Italic
+URxvt.italicFont: xft:FuraCode Nerd Font Mono:style=Light,Regular:size=8:antialias=true:hinting=true,\
+xft:Unifont:style=Medium:size=10
 
-! Hack to act more like XTerm.
+! Hack to act more like XTerm {{{1
 ! Source: http://www.netswarm.net/misc/urxvt-xtermcompat.txt
 ! Fix Shift/Control/Meta with function and insert keys.
 ! S-F1 is normally sent as F11-F20, and S-F11+S-F12 being extra strange.
 #include "/home/gseren/.Xresources.d/urxvt-xtermcompat.txt"
 
 ! extensions (+ disable the selection popup)
-URxvt.perl-ext-common : default,selection-autotransform,url-select,keyboard-select,rotate-colors,matcher,resize-font
-URxvt.perl-ext        : default,clipboard
+URxvt.perl-ext-common      : default,selection-autotransform,url-select,keyboard-select,rotate-colors,matcher,resize-font
+URxvt.perl-ext             : default,clipboard
 
 ! url-select {{{1
 URxvt.url-select.launcher  : firefox
@@ -79,14 +85,18 @@ URxvt.keysym.M-C-equal     : perl:resize-font:reset
 URxvt.keysym.M-C-question  : perl:resize-font:show
 
 ! ! Color scheme {{{1
-#include "/home/gseren/.Xresources.d/urxvt-colours-solarized-dark"
-URxvt.rotate-colors.files : /home/gseren/.Xresources.d/urxvt-colours-solarized-light,/home/gseren/.Xresources.d/urxvt-colours-solarized-dark
+! #include "/home/gseren/.Xresources.d/urxvt-colours-solarized-dark"
+#include "/home/gseren/.Xresources.d/urxvt-colours-solarized-light"
+! #include "/home/gseren/.Xresources.d/urxvt-colors-sdkmvx"
+! #include "/home/gseren/.Xresources.d/urxvt-colors-awesomewm"
+! #include "/home/gseren/.Xresources.d/urxvt-colors-steamburn-3"
+URxvt.rotate-colors.files  : /home/gseren/.Xresources.d/urxvt-colours-solarized-light,/home/gseren/.Xresources.d/urxvt-colours-solarized-dark
 ! rotate-color {{{1
 URxvt.keysym.M-C-u: perl:rotate-colors:next
 URxvt.keysym.M-C-p: perl:rotate-colors:prev
 ! This 'force' color overiding, only for test
 URxvt.keysym.M-C-d : command:\033]4;12;#9090FF\007\033]4;1;#AA0000\007\033]4;15;#FFFFFF\007\033]4;14;#55FFFF\007\033]4;5;#AA00AA\007\033]4;3;#AA5500\007\033]4;7;#AAAAAA\007\033]4;10;#55FF55\007\033]4;13;#FF55FF\007\033]4;4;#0000AD\007\033]4;8;#555555\007\033]11;#000000\007\033]4;9;#FF5555\007\033]4;2;#00AA00\007\033]\007\033]4;0;#000000\007\033]4;11;#FFFF55\007\033]10;#00FF00\007\033]5;0;#00FF00\007\033]4;6;#00AAAA\007
-URxvt.keysym.M-C-l : command:\033]4;12;#72729F9FCFCF\007\033]4;1;#CCCC00000000\007\033]4;15;#EEEEEEEEECEC\007\033]4;14;#3434E2E2E2E2\007\033]4;5;#757550507B7B\007\033]4;3;#C4C4A0A00000\007\033]4;7;#D3D3D7D7CFCF\007\033]4;4;#34346565A4A4\007\033]4;10;#8A8AE2E23434\007\033]4;13;#ADAD7F7FA8A8\007\033]4;8;#555557575353\007\033]11;#FFFFFFFFFFFF\007\033]4;9;#EFEF29292929\007\033]4;2;#4E4E9A9A0606\007\033]4;0;#2E2E34343636\007\033]4;11;#FCFCE9E94F4F\007\033]10;#000000000000\007\033]4;6;#060698209A9A\007
+  URxvt.keysym.M-C-l : command:\033]4;12;#72729F9FCFCF\007\033]4;1;#CCCC00000000\007\033]4;15;#EEEEEEEEECEC\007\033]4;14;#3434E2E2E2E2\007\033]4;5;#757550507B7B\007\033]4;3;#C4C4A0A00000\007\033]4;7;#D3D3D7D7CFCF\007\033]4;4;#34346565A4A4\007\033]4;10;#8A8AE2E23434\007\033]4;13;#ADAD7F7FA8A8\007\033]4;8;#555557575353\007\033]11;#FFFFFFFFFFFF\007\033]4;9;#EFEF29292929\007\033]4;2;#4E4E9A9A0606\007\033]4;0;#2E2E34343636\007\033]4;11;#FCFCE9E94F4F\007\033]10;#000000000000\007\033]4;6;#060698209A9A\007
 
 ! Cursor {{{1
 Xcursor.theme         : Vanilla-DMZ-AA

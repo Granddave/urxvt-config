@@ -20,7 +20,7 @@
 *saveLines            : 32767
 
 ! Set termName {{{1
-URxvt*termName        : screen-256color
+URxvt*termName        : tmux-256color
 
 ! Xft {{{1
 ! anti-aliasing

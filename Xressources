@@ -102,4 +102,4 @@ URxvt.keysym.M-C-d : command:\033]4;12;#9090FF\007\033]4;1;#AA0000\007\033]4;15;
 Xcursor.theme         : Vanilla-DMZ-AA
 Xcursor.size          : 22
 
-/* vim: set ft=xdefaults foldmethod=marker :*/
+/* vim: set foldmethod=marker : */
